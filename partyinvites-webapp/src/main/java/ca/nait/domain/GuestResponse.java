@@ -1,10 +1,12 @@
 package ca.nait.domain;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+// known as a problem domain class
 public class GuestResponse {
 
 	@NotBlank(message="Please enter your name")
@@ -15,9 +17,10 @@ public class GuestResponse {
 	private String email;
 	
 	@NotBlank(message="Please enter your address")
-	private String address;
+	//@Pattern(regexp="^[2-9]\\d{2}-\\d{3}-\\{4}$", message="Please enter a valid phone number")
+	private String phone;
 	
-	@NotNull(message="Please select whether you'll atend or not")
+	@NotNull(message="Please select whether you'll attend or not")
 	private Boolean willAttend;
 	
 	public String getName() {
@@ -32,11 +35,11 @@ public class GuestResponse {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAddress() {
-		return address;
+	public String getPhone() {
+		return phone;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	public Boolean getWillAttend() {
 		return willAttend;

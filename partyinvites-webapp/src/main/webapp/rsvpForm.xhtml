@@ -16,16 +16,16 @@
 				<h:outputLabel for="name">Your name: </h:outputLabel>
 				<h:inputText id="name" value="#{rsvpFormController.guestResponse.name}" /> <br/><br/>
 				<h:outputLabel for="email">Your email: </h:outputLabel>
-				<h:inputText id="email" value="#{}" /> <br/><br/>
-				<h:outputLabel for="address">Your address: </h:outputLabel>
-				<h:inputText id="address" /> <br/><br/>
+				<h:inputText id="email" value="#{rsvpFormController.guestResponse.email}" /> <br/><br/>
+				<h:outputLabel for="address" >Your phone: </h:outputLabel>
+				<h:inputText id="address"  value="#{rsvpFormController.guestResponse.phone}" /> <br/><br/>
 				<h:outputLabel for="willAttend">Wil you attend?</h:outputLabel>
-				<h:selectOneRadio id="willAttend">
-					<f:selectItem itemVaue="true" itemLabel="Yes" />
-					<f:selectItem itemVaue="false" itemLabel="No" />
+				<h:selectOneRadio id="willAttend" value="#{rsvpFormController.guestResponse.willAttend}">
+					<f:selectItem itemValue="true" itemLabel="Yes" />
+					<f:selectItem itemValue="false" itemLabel="No" />
 				</h:selectOneRadio><br/><br/>		
 			</div>
-			<h:commandButton id="submitButton" value="Submit RSVP" />	
+			<h:commandButton id="submitButton" value="Submit RSVP" action="#{rsvpFormController.submitForm()}" />	
 		</h:form>
 	</body>
 </html>
