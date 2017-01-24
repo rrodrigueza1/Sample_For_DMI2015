@@ -13,21 +13,21 @@
 	<div>
 		<h4>BMI Calculator</h4>
 		<h:messages id="messages" />
-		<form>
+		<h:form>
 		<div>
-			<h:outputLabel value="Weight(in lbs:)" for="weightInput" /></br>
-			<h:inputText id="weightInput" value="0"></h:inputText></br>
+			<h:outputLabel value="Weight(in lbs:)" for="weightInput" />
+			<h:inputText id="weightInput" value="#{bmiController.weight}"/>
 					
 		</div>
 		<div>
 		
-			<h:outputLabel value="Height(in inches:)" for="heightInput" /></br>
-			<h:inputText id="heightInput" value="0"></h:inputText></br>
+			<h:outputLabel value="Height(in inches:)" for="heightInput" />
+			<h:inputText id="heightInput" value="#{bmiController.height}"/>
 		</div>
 		<div>
-			<h:commandButton value="Calculate" id="calculateButton" />
+			<h:commandButton value="Calculate" id="calculateButton" action="#{bmiController.submitForm}"/>
 		</div>
-		</form>
+		</h:form>
 	</div>
 </h:body>
 
