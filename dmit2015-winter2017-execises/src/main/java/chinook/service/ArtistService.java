@@ -41,11 +41,13 @@ public class ArtistService {
 		return entityManager.find(Artist.class, artistId);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Artist> findAll()
 	{
 		return entityManager.createQuery("SELECT a FROM Artist a").getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Artist> findAllOrderByName()
 	{
 		return entityManager.createQuery("SELECT a FROM Artist a ORDER BY a.name").getResultList();
