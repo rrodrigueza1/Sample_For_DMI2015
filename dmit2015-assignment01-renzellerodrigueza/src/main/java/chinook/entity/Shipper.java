@@ -28,7 +28,7 @@ public class Shipper implements Serializable {
 	private String companyName;
 
 	@Column(name="Phone")
-	@Pattern(regexp="^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$")
+	@Pattern(regexp="^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",message="Phone number must match the pattern (667) 780-9502")
 	private String phone;
 
 	public Shipper() {

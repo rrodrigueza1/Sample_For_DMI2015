@@ -1,18 +1,25 @@
 package chinook.controller;
 
+import java.io.Serializable;
+
 import javax.ejb.EJBTransactionRolledbackException;
+import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.swing.Box.Filler;
 
 import org.omnifaces.util.Messages;
+import org.primefaces.model.UploadedFile;
 
 import chinook.entity.Category;
 import chinook.service.CategoryServices;
 
 @Named
 @ViewScoped
-public class EditCategoryController {
+public class EditCategoryController implements Serializable  {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -20,6 +27,28 @@ public class EditCategoryController {
 	private CategoryServices categoryService;
 	private int categoryId;
 	private Category currentCategory;
+	private UploadedFile uploadedFile;
+	public UploadedFile getUploadedFile() {
+		return uploadedFile;
+	}
+
+	public void setUploadedFile(UploadedFile uploadedFile) {
+		this.uploadedFile = uploadedFile;
+	}
+	
+	public void upload()
+	{
+	   
+		 if(uploadedFile != null) {
+	            Messages.addFlashGlobalInfo("File Uploaded");
+	        }
+		 else
+		 {
+			 Messages.addGlobalError("Upload Failed");
+		 }
+
+	}
+
 	
 	public void findCategoryById() {
 		if (categoryId <= 0) {
@@ -29,23 +58,26 @@ public class EditCategoryController {
 		
 		Category queryResult = categoryService.findOneById(categoryId);
 		if ( queryResult == null ) {
-			Messages.addGlobalError("Bad request. Unknown artistId {0}", categoryId);
+			Messages.addGlobalError("Bad request. Unknown category id {0}", categoryId);
 			return;
 		}
 		
 		currentCategory = queryResult;		
+		
 	}
 	
 	public String updateCategory() {
+		
+		
 		categoryService.update(currentCategory);
 		currentCategory = null;
 		Messages.addFlashGlobalInfo("Updated was successful.");
 
-		return "asd";//"/public/viewArtists?faces-redirect=true";
+		return "/public/viewCategories?faces-redirect=true";
 	}
 	
 	public String removeCategory() {
-		String outcome = "asd";//"/public/viewArtists?faces-redirect=true";
+		String outcome = "/public/viewCategories?faces-redirect=true";
 		try {
 			categoryService.delete(currentCategory);
 			currentCategory = null;
@@ -62,7 +94,7 @@ public class EditCategoryController {
 	
 	public String cancel() {
 		currentCategory = null;
-		return "asd";//"/public/viewArtists?faces-redirect=true";
+		return "/public/viewCategories?faces-redirect=true";
 	}
 
 	public int getCategoryId() {
@@ -80,5 +112,6 @@ public class EditCategoryController {
 	public void setCurrentCategory(Category currentCategory) {
 		this.currentCategory = currentCategory;
 	}
+
 
 }

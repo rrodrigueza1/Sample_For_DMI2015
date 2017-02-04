@@ -32,16 +32,13 @@
 <h:body style="padding: 60px;">
 	<b:navBar brand="DMIT2015 Demos" brandHref="#{request.contextPath}/index.xhtml" fixed="top" inverse="true">
     	<b:navbarLinks>
-            <b:navLink value="BMI" outcome="/public/bootsfaces/bmi"></b:navLink>
-            <b:navLink value="Chinese Zodiac" outcome="/public/bootsfaces/chineseZodiac"></b:navLink>
-            <b:dropMenu value="JSF Demo">
-	            <b:navLink value="BMI - JSF" outcome="/public/jsf/bmi"></b:navLink>
-	            <b:navLink value="BMI - PrimeFaces" outcome="/public/primefaces/bmi"></b:navLink>
-	            <b:navLink value="BMI - BootsFaces" outcome="/public/bootsfaces/bmi"></b:navLink>
-	            <b:navLink></b:navLink>
-	            <b:navLink value="Chinese Zodiac - JSF" outcome="/public/jsf/chineseZodiac"></b:navLink>
-	            <b:navLink value="Chinese Zodiac - PrimeFaces" outcome="/public/primefaces/chineseZodiac"></b:navLink>
-	            <b:navLink value="Chinese Zodiac - BootsFaces" outcome="/public/bootsfaces/chineseZodiac"></b:navLink>
+          <b:dropMenu value="Shipper">
+	            <b:navLink value="New" outcome="/public/createShipper"></b:navLink>
+	            <b:navLink value="View All Shipper" outcome="/public/viewShippers"></b:navLink>            
+       		</b:dropMenu>
+       		<b:dropMenu value="Category">
+	            <b:navLink value="New" outcome="/public/createCategory"></b:navLink>
+	            <b:navLink value="View All Category" outcome="/public/viewCategories"></b:navLink>            
        		</b:dropMenu>
         </b:navbarLinks>
         

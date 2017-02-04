@@ -17,7 +17,7 @@ public class ViewShipperController {
 	@Inject
 	private ShipperServices shipperService;
 	
-	public List<Shipper> getAllArtists() {
+	public List<Shipper> getAllShippers() {
 		return shipperService.findAllOrderByName();
 	}
 	

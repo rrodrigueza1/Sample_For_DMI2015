@@ -22,7 +22,7 @@ public class Category implements Serializable {
 	private int categoryID;
 
 	@Column(name="CategoryName")
-	@Length(min=1,max=40,message="Category name value is required and is limited to 15 characters in length.")
+	@Length(min=1,max=15,message="Category name value is required and is limited to 15 characters in length.")
 	private String categoryName;
 
 	@Lob

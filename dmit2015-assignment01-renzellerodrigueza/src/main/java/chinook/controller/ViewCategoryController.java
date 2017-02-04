@@ -14,11 +14,13 @@ import chinook.service.CategoryServices;
 @RequestScoped
 public class ViewCategoryController {
 
-
 	@Inject
-	private CategoryServices shipperService;
+	private CategoryServices categoryService;
 	
-	public List<Category> getAllArtists() {
-		return shipperService.findAllOrderByName();
+	public List<Category> getAllCategory() {
+		return categoryService.findAllOrderByName();
 	}
+	
+	 
+	
 }

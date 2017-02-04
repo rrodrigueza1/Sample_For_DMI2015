@@ -25,7 +25,7 @@ public class CategoryServices {
 	
 	@SuppressWarnings("unchecked")
 	public List<Category> findAllOrderByName() {
-		return entityManager.createQuery("SELECT s FROM Category a ORDER by a.categoryName").getResultList();
+		return entityManager.createQuery("SELECT c FROM Category c ORDER by c.categoryName").getResultList();
 	}
 	
 	public void update(Category currentCategory) {

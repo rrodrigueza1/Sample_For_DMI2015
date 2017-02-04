@@ -13,25 +13,32 @@
 	xmlns:b="http://bootsfaces.net/ui"
 	template="/WEB-INF/templates/template-bootsfaces-starter.xhtml">
 	
-	<ui:param name="title" value="View Shippers" />
+	<ui:param name="title" value="View Categories" />
 
 	<ui:define name="maincontent">
 		<b:jumbotron>
-			<h1>All Shippers</h1>
+			<h1>All Categories</h1>
 		</b:jumbotron>
 		
 		<b:messages id="messages" />
 		
 		<h:form>
-			<b:dataTable value="#{viewShipperController.allShippers}" var="shipper">
-				<b:dataTableColumn value="#{shipper.shipperID}">
+			<b:dataTable value="#{viewCategoryController.allCategory}" var="category">
+				<b:dataTableColumn value="#{category.categoryID}" >
 				</b:dataTableColumn>
 				
-				<b:dataTableColumn value="#{shipper.companyName}">
+				<b:dataTableColumn value="#{category.categoryName}">
 				</b:dataTableColumn>
 				
-				<b:dataTableColumn value="#{shipper.phone}">
+				<b:dataTableColumn value="#{category.description}">
 				</b:dataTableColumn>
+				
+				<b:dataTableColumn>
+					<f:facet name="header">
+						Picture
+					</f:facet>							
+					<o:graphicImage value="#{viewCategoryImageController.getImage(category.categoryID)}"/>
+				</b:dataTableColumn> 					
 				
 				<b:dataTableColumn>
 					<f:facet name="header">
@@ -39,8 +46,8 @@
 					</f:facet>					
 					<b:navLink value="edit" 
 						iconAwesome="edit" iconSize="2x" iconAlign="left"
-						outcome="/public/editShippers">
-						<f:param name="shipperID" value="#{shipper.shipperID}" />
+						outcome="/public/editCategory">
+						<f:param name="categoryId" value="#{category.categoryID}" />
 					</b:navLink>
 				</b:dataTableColumn>
 			</b:dataTable>	

@@ -1,0 +1,54 @@
+<ui:composition 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:p="http://primefaces.org/ui"  
+	xmlns:b="http://bootsfaces.net/ui"
+	template="/WEB-INF/templates/template-bootsfaces-starter.xhtml">
+	
+	<ui:param name="title" value="Create Category" />
+
+	<ui:define name="maincontent">
+		<b:jumbotron>
+			<h1>Create New Category Details</h1>
+		</b:jumbotron>
+		
+		<b:messages id="messages" />
+		
+		<h:form>
+		
+			<b:inputText id="categoryName" 
+				label="Category Name"
+				value="#{createCategoryController.currentCategory.categoryName}">
+				<b:focus />
+			</b:inputText>
+			
+			
+			
+			<b:inputTextarea id="description" 
+				label="Description"
+				value="#{createCategoryController.currentCategory.description}">
+			</b:inputTextarea>
+		
+		
+			<b:label text="Picture"></b:label>
+			<p:fileUpload mode="simple" value="#{createCategoryController.uploadedFile}"  />
+    		<p:commandButton value="Upload" action="#{createCategoryController.upload()}" ajax="false" />		
+			<b:commandButton value="Submit" 	
+				look="primary"
+				action="#{createCategoryController.createCategory()}">	
+			</b:commandButton>
+			
+		</h:form>
+				
+				
+	</ui:define>
+
+</ui:composition>

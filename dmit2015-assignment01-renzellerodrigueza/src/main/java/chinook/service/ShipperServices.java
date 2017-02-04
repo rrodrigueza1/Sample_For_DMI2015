@@ -25,7 +25,7 @@ public class ShipperServices {
 	
 	@SuppressWarnings("unchecked")
 	public List<Shipper> findAllOrderByName() {
-		return entityManager.createQuery("SELECT s FROM Shipper a ORDER by a.companyName").getResultList();
+		return entityManager.createQuery("SELECT a FROM Shipper a ORDER by a.companyName").getResultList();
 	}
 	
 	public void update(Shipper currentShipper) {

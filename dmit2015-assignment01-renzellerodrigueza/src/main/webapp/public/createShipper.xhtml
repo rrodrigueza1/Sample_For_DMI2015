@@ -13,38 +13,34 @@
 	xmlns:b="http://bootsfaces.net/ui"
 	template="/WEB-INF/templates/template-bootsfaces-starter.xhtml">
 	
-	<ui:param name="title" value="View Shippers" />
+	<ui:param name="title" value="Create Shippers" />
 
 	<ui:define name="maincontent">
 		<b:jumbotron>
-			<h1>All Shippers</h1>
+			<h1>Create New Shippers Details</h1>
 		</b:jumbotron>
 		
 		<b:messages id="messages" />
 		
 		<h:form>
-			<b:dataTable value="#{viewShipperController.allShippers}" var="shipper">
-				<b:dataTableColumn value="#{shipper.shipperID}">
-				</b:dataTableColumn>
+			<b:inputText id="companyName" 
+				label="Company Name"
+				value="#{createShipperController.currentShipper.companyName}">
+				<b:focus />
+			</b:inputText>
+			
+			<b:inputText id="phone" 
+				label="Phone"
+				value="#{createShipperController.currentShipper.phone}">
 				
-				<b:dataTableColumn value="#{shipper.companyName}">
-				</b:dataTableColumn>
-				
-				<b:dataTableColumn value="#{shipper.phone}">
-				</b:dataTableColumn>
-				
-				<b:dataTableColumn>
-					<f:facet name="header">
-						Action
-					</f:facet>					
-					<b:navLink value="edit" 
-						iconAwesome="edit" iconSize="2x" iconAlign="left"
-						outcome="/public/editShippers">
-						<f:param name="shipperID" value="#{shipper.shipperID}" />
-					</b:navLink>
-				</b:dataTableColumn>
-			</b:dataTable>	
+			</b:inputText>
+			
+			<b:commandButton value="Submit" 	
+				look="primary"
+				action="#{createShipperController.createShipper()}">
+			</b:commandButton>
 		</h:form>
+				
 				
 	</ui:define>
 
